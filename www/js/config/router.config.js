@@ -11,5 +11,10 @@ angular
       controller: 'FeedController'
     });
 
+    $stateProvider.state('post', {
+      url: '/posts/:id',
+      // TODO link with template and controller
+    });
+
     $urlRouterProvider.otherwise('/posts');
   });

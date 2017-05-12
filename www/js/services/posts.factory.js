@@ -53,7 +53,12 @@ angular
       //   ...
       // }
 
-      // TODO add implementation
+      for(var i = 0; i < posts.length; i++) {
+        if(posts[i].objectId === id) {
+          post = posts[i];
+          break;
+        }
+      }
 
       return post;
     }

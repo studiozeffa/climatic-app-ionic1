@@ -13,7 +13,8 @@ angular
 
     $stateProvider.state('post', {
       url: '/posts/:id',
-      // TODO link with template and controller
+      templateUrl: 'html/post.html',
+      controller: 'PostController'
     });
 
     $urlRouterProvider.otherwise('/posts');

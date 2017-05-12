@@ -9825,3 +9825,6 @@ a.button {
 .item-thumbnail-left > img {
   object-fit: cover;
   border-radius: 1px; }
+
+.platform-android .ion-chevron-right.icon-accessory {
+  display: none; }

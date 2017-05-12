@@ -41,3 +41,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   border-radius: 1px;
 }
 
+.platform-android .ion-chevron-right.icon-accessory {
+  display: none;
+}
+

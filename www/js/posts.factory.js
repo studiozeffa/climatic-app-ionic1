@@ -4,7 +4,7 @@
 
 angular
   .module('climatic')
-  .factory('PostsFactory', function() {
+  .factory('PostsFactory', function($q) {
     var posts = [{
       title: 'It\'s Sunny!',
       description: 'A lovely sunny day, as we look over the hills.',
@@ -32,7 +32,7 @@ angular
     }];
 
     function getPosts() {
-      return posts;
+      return $q.resolve(posts);
     }
 
     return {

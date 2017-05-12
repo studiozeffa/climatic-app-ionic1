@@ -4,7 +4,7 @@
 
 angular
   .module('climatic')
-  .controller('FeedController', function($scope, PostsFactory) {
+  .controller('FeedController', function($scope, PostsFactory, $ionicLoading) {
     function handleResponse(resp) {
       $scope.posts = resp.posts;
       $scope.hasMorePosts = resp.hasMore;
@@ -17,7 +17,11 @@ angular
       });
     };
 
+    $ionicLoading.show({
+      template: 'Loading...'
+    });
     PostsFactory.getPosts().then(function(resp) {
       handleResponse(resp);
+      $ionicLoading.hide();
     });
   });

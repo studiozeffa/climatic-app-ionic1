@@ -15,9 +15,29 @@ $royal:                           #886aea !default;
 $dark:                            #444 !default;
 */
 
+$positive:   #68AA63;
+$calm:       #D7A872;
+$balanced:   #e8919f;
+
+// Item thumbnail height
+$item-thumbnail-height: 55px;
+
 // The path for our ionicons font files, relative to the built CSS in www/css
 $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
+
+.loading .spinner {
+  display: block;
+  stroke: $stable;
+  fill: $stable;
+  width: 28px;
+  height: 28px;
+}
+
+.item-thumbnail-left > img {
+  object-fit: cover;
+  border-radius: 1px;
+}
 

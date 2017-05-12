@@ -1,1 +1,8 @@
 /* Empty. Add your own CSS if you like */
+.loading .spinner {
+  display: block;
+  stroke: #eee;
+  fill: #eee;
+  width: 28px;
+  height: 28px;
+}

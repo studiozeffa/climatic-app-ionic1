@@ -18,7 +18,7 @@ angular
     };
 
     $ionicLoading.show({
-      template: 'Loading...'
+      template: '<ion-spinner icon="lines"></ion-spinner>'
     });
     PostsFactory.getPosts().then(function(resp) {
       handleResponse(resp);

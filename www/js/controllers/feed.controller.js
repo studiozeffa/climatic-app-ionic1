@@ -5,9 +5,19 @@
 angular
   .module('climatic')
   .controller('FeedController', function($scope, PostsFactory) {
-      // To begin with, let's just set some static data.
-      // Later, we'll fetch this dynamically.
-      PostsFactory.getPosts().then(function(resp) {
-        $scope.posts = resp.posts;
+    function handleResponse(resp) {
+      $scope.posts = resp.posts;
+      $scope.hasMorePosts = resp.hasMore;
+    }
+
+    $scope.loadMorePosts = function() {
+      PostsFactory.getNextPosts().then(function(resp) {
+        handleResponse(resp);
+        $scope.$broadcast('scroll.infiniteScrollComplete');
       });
+    };
+
+    PostsFactory.getPosts().then(function(resp) {
+      handleResponse(resp);
+    });
   });

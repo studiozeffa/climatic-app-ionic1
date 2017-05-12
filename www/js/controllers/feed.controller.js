@@ -7,7 +7,7 @@ angular
   .controller('FeedController', function($scope, PostsFactory) {
       // To begin with, let's just set some static data.
       // Later, we'll fetch this dynamically.
-      PostsFactory.getPosts().then(function(posts) {
-        $scope.posts = posts;
+      PostsFactory.getPosts().then(function(resp) {
+        $scope.posts = resp.posts;
       });
   });

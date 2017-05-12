@@ -9828,3 +9828,6 @@ a.button {
 
 .platform-android .ion-chevron-right.icon-accessory {
   display: none; }
+
+.button-icon-small:before {
+  font-size: 24px !important; }

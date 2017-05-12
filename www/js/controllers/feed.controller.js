@@ -4,7 +4,9 @@
 
 angular
   .module('climatic')
-  .controller('FeedController', function($scope, PostsFactory, $ionicLoading) {
+  .controller('FeedController', function($scope, PostsFactory, $ionicLoading, $ionicModal) {
+
+    /** Feed */
     function handleResponse(resp) {
       $scope.posts = resp.posts;
       $scope.hasMorePosts = resp.hasMore;
@@ -24,4 +26,27 @@ angular
       handleResponse(resp);
       $ionicLoading.hide();
     });
+
+
+    /** Add Post Modal */
+    $ionicModal.fromTemplateUrl('html/add-post.html', {
+      scope: $scope
+    }).then(function(modal) {
+      $scope.addPostModal = modal;
+    });
+
+    $scope.openAddPostModal = function() {
+      $scope.addPostModal.show();
+    };
+
+    $scope.savePost = function() {
+      console.log('Saving!');
+      $scope.addPostModal.hide();
+    };
+
+    $scope.cancelPost = function() {
+      console.log('Cancelling!');
+      $scope.addPostModal.hide();
+    };
+
   });

@@ -7,6 +7,12 @@ angular
   .controller('FeedController', function($scope, PostsFactory, CameraFactory, $ionicLoading, $ionicModal, $ionicPopup) {
 
     /** Feed */
+    function showLoadingSpinner() {
+      $ionicLoading.show({
+        template: '<ion-spinner icon="lines"></ion-spinner>'
+      });
+    }
+
     function refreshFeed() {
       PostsFactory.getPosts().then(function(resp) {
         handleResponse(resp);
@@ -26,9 +32,7 @@ angular
       });
     };
 
-    $ionicLoading.show({
-      template: '<ion-spinner icon="lines"></ion-spinner>'
-    });
+    showLoadingSpinner();
     refreshFeed();
 
 
@@ -74,6 +78,7 @@ angular
     };
 
     $scope.savePost = function() {
+      showLoadingSpinner();
       PostsFactory
         .savePost($scope.addPostData)
         .then(function() {

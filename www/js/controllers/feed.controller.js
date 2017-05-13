@@ -13,17 +13,18 @@ angular
       });
     }
 
-    function refreshFeed() {
-      PostsFactory.getPosts().then(function(resp) {
-        handleResponse(resp);
-        $ionicLoading.hide();
-      });
-    }
-
     function handleResponse(resp) {
       $scope.posts = resp.posts;
       $scope.hasMorePosts = resp.hasMore;
     }
+
+    $scope.refreshFeed = function() {
+      PostsFactory.getPosts().then(function(resp) {
+        handleResponse(resp);
+        $ionicLoading.hide();
+        $scope.$broadcast('scroll.refreshComplete');
+      });
+    };
 
     $scope.loadMorePosts = function() {
       PostsFactory.getNextPosts().then(function(resp) {
@@ -33,7 +34,7 @@ angular
     };
 
     showLoadingSpinner();
-    refreshFeed();
+    $scope.refreshFeed();
 
 
     /** Add Post Modal */
@@ -83,7 +84,7 @@ angular
         .savePost($scope.addPostData)
         .then(function() {
           $scope.addPostModal.hide();
-          refreshFeed();
+          $scope.refreshFeed();
         });
     };
 

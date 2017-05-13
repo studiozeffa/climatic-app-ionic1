@@ -7,6 +7,13 @@ angular
   .controller('FeedController', function($scope, PostsFactory, CameraFactory, $ionicLoading, $ionicModal, $ionicPopup) {
 
     /** Feed */
+    function refreshFeed() {
+      PostsFactory.getPosts().then(function(resp) {
+        handleResponse(resp);
+        $ionicLoading.hide();
+      });
+    }
+
     function handleResponse(resp) {
       $scope.posts = resp.posts;
       $scope.hasMorePosts = resp.hasMore;
@@ -22,10 +29,7 @@ angular
     $ionicLoading.show({
       template: '<ion-spinner icon="lines"></ion-spinner>'
     });
-    PostsFactory.getPosts().then(function(resp) {
-      handleResponse(resp);
-      $ionicLoading.hide();
-    });
+    refreshFeed();
 
 
     /** Add Post Modal */
@@ -74,6 +78,7 @@ angular
         .savePost($scope.addPostData)
         .then(function() {
           $scope.addPostModal.hide();
+          refreshFeed();
         });
     };
 

@@ -9831,3 +9831,6 @@ a.button {
 
 .button-icon-small:before {
   font-size: 24px !important; }
+
+textarea {
+  resize: none !important; }

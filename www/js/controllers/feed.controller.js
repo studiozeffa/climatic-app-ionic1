@@ -51,9 +51,11 @@ angular
         .then(function(picture) {
           $scope.addPostData.picture = picture;
         })
-        .catch(function(error) {
-          console.warn('Error getting picture:');
-          console.warn(error);
+        .catch(function() {
+          $ionicPopup.alert({
+            title: 'Oops',
+            template: 'Sorry, a picture could not be taken.'
+          });
         });
     };
 

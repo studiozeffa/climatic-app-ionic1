@@ -59,6 +59,10 @@ angular
         });
     };
 
+    $scope.removePicture = function() {
+      $scope.addPostData.picture = '';
+    }
+
     $scope.savePost = function() {
       console.log('Saving!');
       $scope.addPostModal.hide();

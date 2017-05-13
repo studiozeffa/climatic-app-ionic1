@@ -61,7 +61,13 @@ angular
 
     $scope.removePicture = function() {
       $scope.addPostData.picture = '';
-    }
+    };
+
+    $scope.isAddPostDataValid = function() {
+      return $scope.addPostData.title &&
+             $scope.addPostData.description &&
+             $scope.addPostData.picture;
+    };
 
     $scope.savePost = function() {
       console.log('Saving!');

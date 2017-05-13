@@ -2,7 +2,7 @@
   <ion-header-bar class="bar-calm">
     <button class="button button-icon button-icon-small icon ion-close-round" ng-click="cancelPost()"></button>
     <h1 class="title">Add Post</h1>
-    <button class="button button-icon button-icon-small icon ion-checkmark-round" ng-click="savePost()"></button>
+    <button class="button button-icon button-icon-small icon ion-checkmark-round" ng-click="savePost()" ng-disabled="!isAddPostDataValid()"></button>
   </ion-header-bar>
   <ion-content>
     <div class="list">

@@ -49,3 +49,7 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
   font-size: $button-icon-size !important;
 }
 
+textarea {
+  resize: none !important;
+}
+

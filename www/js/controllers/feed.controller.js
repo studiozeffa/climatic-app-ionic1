@@ -70,12 +70,14 @@ angular
     };
 
     $scope.savePost = function() {
-      console.log('Saving!');
-      $scope.addPostModal.hide();
+      PostsFactory
+        .savePost($scope.addPostData)
+        .then(function() {
+          $scope.addPostModal.hide();
+        });
     };
 
     $scope.cancelPost = function() {
-      console.log('Cancelling!');
       $scope.addPostModal.hide();
     };
 

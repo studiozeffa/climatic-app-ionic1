@@ -4,7 +4,7 @@
 
 angular
   .module('climatic')
-  .controller('FeedController', function($scope, PostsFactory, $ionicLoading, $ionicModal) {
+  .controller('FeedController', function($scope, PostsFactory, CameraFactory, $ionicLoading, $ionicModal, $ionicPopup) {
 
     /** Feed */
     function handleResponse(resp) {
@@ -37,11 +37,24 @@ angular
 
     $scope.addPostData = {
       title: '',
-      description: ''
+      description: '',
+      picture: ''
     };
 
     $scope.openAddPostModal = function() {
       $scope.addPostModal.show();
+    };
+
+    $scope.takePicture = function() {
+      CameraFactory
+        .takePicture()
+        .then(function(picture) {
+          $scope.addPostData.picture = picture;
+        })
+        .catch(function(error) {
+          console.warn('Error getting picture:');
+          console.warn(error);
+        });
     };
 
     $scope.savePost = function() {

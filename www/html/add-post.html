@@ -15,5 +15,15 @@
         <textarea placeholder="Description" ng-model="addPostData.description" msd-elastic="\n"></textarea>
       </label>
     </div>
+    <!-- TODO -->
+    <!-- Button should launch camera when tapped -->
+    <!-- Button should be displayed when there is no image data -->
+    <!-- Image should be displayed when there is some image data -->
+    <div class="padding">
+      <button type="button" class="button button-outline button-positive"><i class="icon ion-camera"></i>&nbsp;&nbsp;Take Picture</button>
+    </div>
+    <div class="padding">
+      <img class="full-image" ng-src="data:image/jpeg;base64,{{addPostData.picture}}">
+    </div>
   </ion-content>
 </ion-modal-view>

@@ -35,6 +35,11 @@ angular
       $scope.addPostModal = modal;
     });
 
+    $scope.addPostData = {
+      title: '',
+      description: ''
+    };
+
     $scope.openAddPostModal = function() {
       $scope.addPostModal.show();
     };

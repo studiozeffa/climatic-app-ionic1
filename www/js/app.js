@@ -24,5 +24,9 @@ angular.module('climatic', ['ionic', 'monospaced.elastic', 'ngCordova'])
         StatusBar.backgroundColorByHexString('#559951');
       }
     }
+
+    if(window.plugins && window.plugins.headerColor) {
+      window.plugins.headerColor.tint('#559951');
+    }
   });
 })

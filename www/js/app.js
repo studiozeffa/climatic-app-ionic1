@@ -18,7 +18,11 @@ angular.module('climatic', ['ionic', 'monospaced.elastic', 'ngCordova'])
       cordova.plugins.Keyboard.disableScroll(true);
     }
     if(window.StatusBar) {
-      StatusBar.styleLightContent();
+      if($ionicPlatform.is('ios')) {
+        StatusBar.styleLightContent();
+      } else if ($ionicPlatform.is('android')) {
+        StatusBar.backgroundColorByHexString('#559951');
+      }
     }
   });
 })
